@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="../static/style.css">
+     <link rel="icon" type="image/png" href="../static/images/favicon.jpg">
+     <script src="../static/script.js" defer></script>
+     <title>File Uploader</title>
+</head>
+<script>
+     function getRandomImage() {
+          // Array of random image URLs
+          var randomImages = [
+               '../static/images/bg1.jpg',
+               '../static/images/bg2.png',
+               '../static/images/bg3.png',
+               '../static/images/bg4.jpg',
+               '../static/images/bg5.jpg',
+               '../static/images/bg7.jpg',
+               '../static/images/bg8.jpg',
+               '../static/images/bg9.jpg',
+               '../static/images/bg10.jpg'
+          ];
+
+          // Get a random index from the array
+          var randomIndex = Math.floor(Math.random() * randomImages.length);
+
+          // Set the random background image
+          document.body.style.backgroundImage = 'url(' + randomImages[randomIndex] + ')';
+     }
+
+     // Call the function on page load or refresh
+     window.onload = getRandomImage;
+</script>
+
+<body>
+     <div>
+          <header>
+               <h1>DropDash</h1>
+               <!-- <h2>Share Files, Simply and Securely.</h2> -->
+               <h2>Drop It Like It's Hot: Share any file, any size, securely.
+
+               </h2>
+
+               <div id="expirationOptions">
+                    <label>Expire after:</label>
+                    <button id="expire1Hour" class="expiration-button selected" data-expiration="60">1 Hour</button>
+                    <button id="expire12Hours" class="expiration-button" data-expiration="360">6 Hours</button>
+                    <button id="expire12Hours" class="expiration-button" data-expiration="720">12 Hours</button>
+                    <button id="expire3Days" class="expiration-button" data-expiration="1440">24 Hours</button>
+                    <input type="text" id="customExpiration" class="expiration-input" placeholder="Custom (minutes)">
+                    <input type="password"  class="secret-input" id="secret" placeholder="Password (Optional)">
+               </div>
+          </header>
+     </div>
+     <div class="container">
+          <div class="drop-area" id="dropArea">
+               <input type="file" name="fileInput" id="fileInput" multiple />
+               <div class="drag-text">Select or drop files</div>
+          </div>
+          <div id="fileLinks"></div>
+     </div>
+
+</body>
+
+</html>
